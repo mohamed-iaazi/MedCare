@@ -10,8 +10,7 @@ import java.sql.Statement;
 
 public class RegisterDao extends ConnectionUtils {
 
-    public  void  CreateAccount(User user,String specialisation){
-        Doctor doctor= (Doctor) user;
+    public  boolean  CreateAccount(User user,String specialisation){
 
         try (PreparedStatement PrsForUser = geConnection().prepareStatement
                 ("insert into user (username , email , password , numberPhone,Role)" +
@@ -48,6 +47,8 @@ public class RegisterDao extends ConnectionUtils {
                     PrsForPatient.executeUpdate();
                     System.out.println("UserId: " + userId);
                 }
+
+                return true;
             }
 
 
@@ -58,6 +59,7 @@ public class RegisterDao extends ConnectionUtils {
             } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return  false;
 
     }
 }

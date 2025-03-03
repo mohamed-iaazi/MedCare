@@ -187,7 +187,6 @@
 
 
 
-    <jsp:useBean id="patients" scope="request" type="java.util.List"/>
 
 
     <c:forEach var="patient" items="${patients}"   >

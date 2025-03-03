@@ -42,6 +42,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Appointment">Appointement</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="RendezvousPatient.jsp">Patient Rendezvous</a>
+                    </li>
                 </ul>
 
                 <%

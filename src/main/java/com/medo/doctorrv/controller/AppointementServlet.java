@@ -15,6 +15,7 @@ public class AppointementServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect(req.getContextPath() + "/Appointement.jsp");
 
 
     }
@@ -22,6 +23,5 @@ public class AppointementServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.sendRedirect(req.getContextPath() + "/Appointement.jsp");
     }
 }
