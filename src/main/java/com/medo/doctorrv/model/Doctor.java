@@ -1,16 +1,13 @@
 package com.medo.doctorrv.model;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class Doctor extends  User
 {
     private int id;
     private String specialisation;
 
-    public Doctor(String fullame, String email, String password, int numberPhone, Role role, int id, String specialisation) {
+    public Doctor(String fullame, String email, String password, int numberPhone, Role role, String specialisation) {
         super(fullame, email, password, numberPhone, role);
-        this.id = id;
         this.specialisation = specialisation;
     }
 

@@ -13,16 +13,16 @@ create  table  User (
 
 create  table  Docotr (
                           DoctorId int primary key auto_increment,
-                          id int    ,
+                          userid int    ,
                           specialisation varchar(250),
-                          foreign key (id) references user(id)
+                          foreign key (userid) references user(userid)
 
 
 );
 
 create  table  Patient (
                            PatientId int primary key auto_increment,
-                           id int ,
-                           foreign key (id) references user(id)
+                           userid int ,
+                           foreign key (userid) references user(userid)
 
 );

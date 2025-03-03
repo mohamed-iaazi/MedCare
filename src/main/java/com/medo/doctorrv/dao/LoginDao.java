@@ -10,7 +10,7 @@ public class LoginDao {
 
     final static   private  String SELECT_BY_USER = "select * from user where username = ?";
 
-    public  static boolean getUserByUsernameAndPassword(String username , String password) {
+    public  static String getUserByUsernameAndPassword(String username , String password) {
 
             try (Connection connection= ConnectionUtils.geConnection(); PreparedStatement preparedStatement=connection.prepareStatement(SELECT_BY_USER)) {
 
@@ -24,7 +24,10 @@ public class LoginDao {
 
                         String pass=resultSet.getString("password");
                         System.out.println("return "+password.equals(pass));
-                        return password.equals(pass);
+                        if (password.equals(pass)){
+                            return resultSet.getString("role");
+                        }
+
                     }
 
                 } catch (Exception e) {
@@ -39,7 +42,7 @@ public class LoginDao {
 
 
 
-        return false;
+        return null;
     }
 
 }

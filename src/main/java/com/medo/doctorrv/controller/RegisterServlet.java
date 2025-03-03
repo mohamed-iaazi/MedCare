@@ -19,7 +19,6 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RegisterDao registerDao=new RegisterDao();
-
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
@@ -27,17 +26,14 @@ public class RegisterServlet extends HttpServlet {
         String role = req.getParameter("role");
 
         if (role.equals("Doctor")) {
-            String specialization = req.getParameter("specialization");
-            User doctor = new Doctor( username, password, email, numberPhone, new Role(role)) ;
-            registerDao.CreateAccount(doctor );
-
-
+            String specialization = req.getParameter("specialisation");
+            User doctor = new Doctor( username, password, email, numberPhone, new Role(role),specialization) ;
+            registerDao.CreateAccount(doctor ,specialization );
         }
         else {
 
-
             User patient=new Patient(username,password,email,numberPhone,new Role(role));
-            registerDao.CreateAccount(patient  );
+            registerDao.CreateAccount(patient , null  );
 
 
 

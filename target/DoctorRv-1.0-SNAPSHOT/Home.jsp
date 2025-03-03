@@ -40,7 +40,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="Appointement">Appointement</a>
+                        <a class="nav-link" href="Appointment">Appointement</a>
                     </li>
                 </ul>
 
@@ -87,7 +87,7 @@
     <h1>Providing An Exeptional <br> Patient Experience</h1>
     <div class="row me-0">
         <div class="card p-3  col-sm-12 col-md-4 col-lg-4 col-xl-4">
-            <form  action="insert"  method="post">
+            <form  action="Appointment"  method="post">
                 <div class="ms-auto me-auto ">
 
                     <input class="mt-3" type="text" class="form-control" id="username" name="username" aria-describedby="username" placeholder="User Name">
