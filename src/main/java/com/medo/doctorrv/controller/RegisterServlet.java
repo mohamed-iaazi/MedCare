@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -27,14 +28,22 @@ public class RegisterServlet extends HttpServlet {
 
         if (role.equals("Doctor")) {
             String specialization = req.getParameter("specialisation");
-            User doctor = new Doctor( username, password, email, numberPhone, new Role(role),specialization) ;
-            registerDao.CreateAccount(doctor ,specialization );
+            User doctor = new Doctor( username, email, password, numberPhone, new Role(role),specialization) ;
+
+            if (registerDao.CreateAccount(doctor, specialization)) {
+                HttpSession session = req.getSession();
+                session.setAttribute("role", "doctor");
+                resp.sendRedirect(req.getContextPath()+"/");
+            }
+
         }
         else {
 
-            User patient=new Patient(username,password,email,numberPhone,new Role(role));
-            registerDao.CreateAccount(patient , null  );
-
+            User patient=new Patient(username,email,password,numberPhone,new Role(role));
+            if (registerDao.CreateAccount(patient , null  )) {
+                HttpSession session = req.getSession();
+                session.setAttribute("role", "patient");
+            }
 
 
         }
